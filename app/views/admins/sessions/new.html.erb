@@ -1,0 +1,25 @@
+<div>
+  <a class="hiddenanchor" id="signin"></a>
+
+  <div class="login_wrapper">
+    <section class="login_content">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), class:"admin") do |f| %>
+        <h1>Login Admin</h1>
+
+        <div class="form-group">
+          <%= f.email_field :email, autofocus: true, placeholder:"Enter Email...", class:"form-control form-control-user", id:"exampleInputEmail" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.password_field :password, placeholder:"Password", class:"form-control form-control-user", id:"exampleInputPassword" %>
+        </div>
+        
+        <div>
+          <%= f.submit "Acessar", class:"btn btn-primary btn-block", style:"float: none; margin-left: 0px;" %>
+        </div>
+      <% end %>
+    </section>
+  </div>
+
+</div>
+

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="Victor Guedes">
+
+    <title>TimeToAnswer</title>
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application' %>
+    <%= stylesheet_link_tag 'site' %>
+  </head>
+
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
+        <%= link_to 'Time to Answer', root_path, class:"navbar-brand" %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExample09">
+          <ul class="navbar-nav ml-auto">
+            <% unless user_signed_in? %>
+              <li class="nav-item">
+                <%= link_to 'Entrar', new_user_session_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Cadastrar-se', new_user_registration_path, class: "nav-link" %>
+              </li>
+            <% else %>
+              <%= form_with(url: site_search_path, local: true, method: :get, class:"form-inline my-2 my-lg-0") do |form| %>
+                <%= form.text_field :term, class:"form-control mr-sm-2", placeholder:"Buscar..." %>
+                <button class="btn btn-outline-dark my-2 my-sm-0" type="submit"><%= t('info.search') %></button>
+              <% end %>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= current_user.email%></a>
+                <div class="dropdown-menu" aria-labelledby="dropdown09">
+                  <%= link_to users_backoffice_welcome_index_path, class: "dropdown-item" do %>
+                    <i class="fas fa-user"></i> <%= t('info.profile') %>
+                  <% end %>
+                  <div class="dropdown-divider"></div>
+                  <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
+                    <i class="fas fa-sign-out-alt"></i> <%= t('info.logout') %>
+                  <% end %>
+                </div>
+              </li>
+              
+            <% end %>
+          </ul>
+        </div>
+      </nav>
+
+      <%= yield %>
+
+    </div>
+
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'site' %>
+
+    <% if notice %>
+      <%= javascript_tag do %>
+        $.bootstrapGrowl(<%= notice %>, {
+          ele: 'body', // which element to append to
+          type: 'success', // (null, 'info', 'error', 'success')
+          offset: {from: 'top', amount: 20}, // 'top', or 'bottom'
+          align: 'right', // ('left', 'right', or 'center')
+          width: 250, // (integer, or 'auto')
+          delay: 2000,
+          allow_dismiss: true,
+          stackup_spacing: 10
+        });
+      <% end %>
+    <% end %>
+  </body>
+</html>
+

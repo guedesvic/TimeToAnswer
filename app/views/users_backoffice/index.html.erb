@@ -1,0 +1,28 @@
+<h1>Seja Bem-vindo!</h1>
+
+<div class="animated flipInY col-lg-3 col-md-3 col-sm-6 ">
+  <div class="tile-stats">
+    <div class="icon"><i class="fa fa-comments-o"></i></div>
+    <div class="count"> <%= @user_statistic.total_questions %> </div>
+    <h3> <%= t('messages.questions_total') %> </h3>
+    <p> <%= t('messages.answer_questions') %> </p>
+  </div>
+</div>
+
+<div class="animated flipInY col-lg-3 col-md-3 col-sm-6 ">
+  <div class="tile-stats">
+    <div class="icon"><i class="fa fa-check-square-o"></i></div>
+    <div class="count"> <%= @user_statistic.right_questions %> </div>
+    <h3> <%= t('messages.questions_total') %> </h3>
+    <p> <%= t('messages.correct_answers') %> </p>
+  </div>
+</div>
+
+<div class="animated flipInY col-lg-3 col-md-3 col-sm-6 ">
+  <div class="tile-stats">
+    <div class="icon"><i class="fa fa-close"></i></div>
+    <div class="count"> <%= @user_statistic.wrong_questions %> </div>
+    <h3> <%= t('messages.questions_total') %> </h3>
+    <p> <%= t('messages.wrong_answers') %> </p>
+  </div>
+</div>

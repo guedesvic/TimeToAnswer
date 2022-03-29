@@ -1,0 +1,14 @@
+en:
+  info:
+    admin_panel: Administrative Panel
+    dashboard: Dashboard
+    admins: Administrators
+    subjects: Subjects/Fields
+    questions: Questions
+    search: Search
+    profile: Profile
+    logout: Logout
+    profile_info: Profile Info
+    home: Home
+    login_info: Log in to keep answering questions
+    forget_password: Forgot password?

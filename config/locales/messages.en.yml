@@ -1,0 +1,26 @@
+en:
+  messages:
+    welcome: Welcome
+    new: New %{model}
+    listing: Listing %{model}
+    editing: Editing %{model}
+    confirm_exclusion: Are you sure?
+    correct_answer: Correct answer?
+    reset_password: Send password reset instructions
+    change_password: Change your password
+    remember_me: Remember me
+    login_google: Login with Google
+    login_facebook: Login with Facebook
+    questions_total: Total
+    answer_questions: Answered questions
+    correct_answers: Correct answers
+    wrong_answers: Wrong answers
+  buttons:
+    save: Save
+    answer: Answer
+    register: Register
+    alter: Change password
+    update: Update
+  links:
+    forgot_password: Forgot your password
+    new_user: Register an account

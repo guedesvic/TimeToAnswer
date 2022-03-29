@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="Victor Guedes" content="">
+
+    <title>TimeToAnswer</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application' %>
+    <%= stylesheet_link_tag 'user_devise' %>
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"rel="stylesheet">
+  </head>
+
+  <body class="bg-gradient-primary">
+    <div class="container">
+      <%= yield %>
+    </div>
+
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'user_devise' %>
+
+    <% unless resource.errors.empty? %>
+      <% resource.errors.full_messages.each do |msg| %>
+        <%= javascript_tag do %>
+          $.bootstrapGrowl('<%= msg %>', {
+          ele: 'body', // which element to append to
+          type: 'danger', // (null, 'info', 'error', 'success')
+          offset: {from: 'top', amount: 20}, // 'top', or 'bottom'
+          align: 'right', // ('left', 'right', or 'center')
+          width: 250, // (integer, or 'auto')
+          delay: 2000,
+          allow_dismiss: true,
+          stackup_spacing: 10
+          });
+        <% end %>
+      <% end %>
+    <% end %>
+  </body>
+</html>

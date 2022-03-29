@@ -1,0 +1,18 @@
+{
+  "name": "time_to_answer",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "5.15.3",
+    "bootstrap": "4.6.0",
+    "bootstrap-growl-ifightcrime": "1.1.0",
+    "fastclick": "1.0.6",
+    "jquery": "3.6.0",
+    "jquery.easing": "^1.4.1",
+    "malihu-custom-scrollbar-plugin": "3.1.3",
+    "nprogress": "^0.2.0"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "guedesvic <victor_hpguedes@hotmail.com>",
+  "license": "MIT"
+}

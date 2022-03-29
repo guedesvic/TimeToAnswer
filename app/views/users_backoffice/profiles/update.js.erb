@@ -1,0 +1,16 @@
+$('#avatarModal').modal('hide');
+
+document.getElementById('imgAvatarLg').src = '<%= url_for(@user.user_profile.avatar) %>'
+document.getElementById('imgAvatarMd').src = '<%= url_for(@user.user_profile.avatar) %>'
+document.getElementById('imgAvatarSm').src = '<%= url_for(@user.user_profile.avatar) %>'
+
+$.bootstrapGrowl('Avatar atualizado!', {
+  ele: 'body', // which element to append to
+  type: 'success', // (null, 'info', 'error', 'success')
+  offset: {from: 'top', amount: 20}, // 'top', or 'bottom'
+  align: 'right', // ('left', 'right', or 'center')
+  width: 250, // (integer, or 'auto')
+  delay: 2000,
+  allow_dismiss: true,
+  stackup_spacing: 10
+});

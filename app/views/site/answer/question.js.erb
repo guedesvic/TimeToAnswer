@@ -1,0 +1,31 @@
+var element = document.getElementById('submit_<%= @question_id %>');
+
+element.classList.remove('btn-secondary');
+element.classList.remove('btn-success');
+element.classList.remove('btn-danger');
+
+if (<%= @correct %>) {
+  element.classList.add('btn-success');
+  $.bootstrapGrowl('Voce acertou!', {
+    ele: 'body', // which element to append to
+    type: 'success', // (null, 'info', 'error', 'success')
+    offset: {from: 'top', amount: 20}, // 'top', or 'bottom'
+    align: 'right', // ('left', 'right', or 'center')
+    width: 250, // (integer, or 'auto')
+    delay: 2000,
+    allow_dismiss: true,
+    stackup_spacing: 10
+  });
+} else {
+  element.classList.add('btn-danger');
+  $.bootstrapGrowl('Infelizmente voce errou!', {
+    ele: 'body', // which element to append to
+    type: 'danger', // (null, 'info', 'error', 'success')
+    offset: {from: 'top', amount: 20}, // 'top', or 'bottom'
+    align: 'right', // ('left', 'right', or 'center')
+    width: 250, // (integer, or 'auto')
+    delay: 2000,
+    allow_dismiss: true,
+    stackup_spacing: 10
+  });
+}

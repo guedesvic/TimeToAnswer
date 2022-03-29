@@ -1,0 +1,14 @@
+'pt-BR':
+  info:
+    admin_panel: Painel Administrativo
+    dashboard: Dashboard
+    admins: Administradores
+    subjects: Assuntos/Áreas
+    questions: Perguntas
+    search: Buscar
+    profile: Perfil
+    logout: Sair
+    profile_info: Dados do perfil
+    home: Inicio
+    login_info: Efetue login para continuar respondendo questoes
+    forget_password: Esqueceu a senha?

@@ -1,0 +1,26 @@
+'pt-BR':
+  messages:
+    welcome: Seja bem vindo
+    new: Novo %{model}
+    listing: Listando %{model}
+    editing: Editando %{model}
+    confirm_exclusion: Tem certeza que deseja excluir?
+    correct_answer: Resposta correta?
+    reset_password: Enviar instrucoes de recuperacao de senha
+    change_password: Altere sua senha
+    remember_me: Lembrar-me
+    login_google: Login com Google
+    login_facebook: Login com Facebook
+    questions_total: Total
+    answer_questions: Questoes respondidas
+    correct_answers: Respostas Corretas
+    wrong_answers: Respostas erradas
+  buttons:
+    save: Salvar
+    answer: Responder
+    register: 'Cadastrar-se'
+    alter: Alterar senha
+    update: Atualizar
+  links:
+    forgot_password: Esqueceu a senha
+    new_user: Crie uma conta

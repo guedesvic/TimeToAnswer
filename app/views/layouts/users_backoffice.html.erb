@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>TimeToAnswer</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application' %>
+    <%= stylesheet_link_tag    'users_backoffice' %>
+
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col menu_fixed">
+          <div class="left_col scroll-view">
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+              <div class="profile_pic">
+                <%= link_to image_tag(avatar_url, alt:"...", class:"img-circle profile_img", id:"imgAvatarMd"), '#', "data-toggle":"modal", "data-target":"#avatarModal" %>
+              </div>
+              <div class="profile_info">
+                <span><%= t('messages.welcome') %>,</span>
+                <% if current_user.full_name.blank? %>
+                  <h2> <%= current_user.email %> </h2>
+                <% else %>
+                  <h2> <%= current_user.full_name %> </h2>
+                <% end %>
+              </div>
+            </div>
+            <!-- /menu profile quick info -->
+            <br />
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+                <ul class="nav side-menu">
+                  <li>
+                    <%= link_to users_backoffice_welcome_index_path do %>
+                      <i class="fa fa-home"></i> <%= t('messages.home') %>
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to users_backoffice_profiles_path do %>
+                      <i class="fa fa-user"></i> <%= t('messages.profile_info') %>
+                    <% end %>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+            <div class="sidebar-footer hidden-small">
+              <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              </a>
+            </div>
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+            <nav>
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <%= image_tag avatar_url, alt:'', id:"imgAvatarSm" %>
+                    <%= current_user.email %>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li class="nav-item dropdown">
+                      <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
+                        <i class="fas fa-sign-out-alt"></i> Sair
+                      <% end %>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div>
+            <div class="page-title">
+              <%= yield %>
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <div class="modal fade" id="avatarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+        <%= form_with(url: users_backoffice_profiles_path, model: current_user) do |form| %>
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Avatar</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <%= form.fields_for :user_profile do |profile_form| %>
+              <div class="form-group">
+                <%= profile_form.label :avatar %>
+                <%= image_tag(avatar_url, alt:"...", class:"img-circle profile_img", id:"imgAvatarLg") %>
+                <%= profile_form.file_field :avatar, class:"form-control" %>
+              </div>
+            <% end %>
+          </div>
+          <div class="modal-footer">
+            <%= form.submit "Salvar", class:"btn btn-primary" %>
+          </div>
+        <% end %>
+        </div>
+      </div>
+    </div>
+
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'users_backoffice' %>
+  </body>
+</html>
